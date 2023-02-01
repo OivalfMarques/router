@@ -9,6 +9,8 @@ import {ActivatedRoute} from "@angular/router";
 export class DummyChildComponent implements OnInit {
 
   data$ = this.activatedRoute.data;
+  params$ = this.activatedRoute.params;
+  queryParams$ = this.activatedRoute.queryParams;
 
   constructor(
     private activatedRoute: ActivatedRoute

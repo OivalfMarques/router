@@ -1,9 +1,17 @@
-
-
 <div>
-  <a  > Dummy</a>
-  <a  > Dummy2</a>
-  <a  > Dummy3</a>
+  <a
+    routerLink="dummy/100"
+    routerLinkActive="active"
+  > Dummy</a>
+  <a
+    routerLink="dummy/100/1000"
+    routerLinkActive="active"
+  > Dummy Child With param</a>
+  <a
+    [routerLink]="['dummy2','some']"
+  > Dummy2</a>
+  <a  (click)="navigate($event)"> Dummy3</a>
+  <a  [attr.href]="externalUrl"> Dummy3</a>
 
 </div>
 

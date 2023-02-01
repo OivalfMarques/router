@@ -10,7 +10,7 @@ import {DummyChildComponent} from "./modules/dummy/dummy-child/dummy-child.compo
 
 const routes: Routes = [
   {
-    path: "dummy",
+    path: "dummy/:id",
     component: DummyComponent,
     data: {
       someData:  "someData"
@@ -18,7 +18,14 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        component: DummyChildComponent
+        component: DummyChildComponent,
+      },
+      {
+        path: ":child",
+        component: DummyChildComponent,
+        data: {
+          someDataChild:  "someDataChild"
+        },
       }
     ]
   },

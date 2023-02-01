@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-dummy',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dummy.component.scss']
 })
 export class DummyComponent implements OnInit {
+  data$ = this.activatedRoute.data;
+  params$ = this.activatedRoute.params;
+  queryParams$ = this.activatedRoute.queryParams;
 
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
   }
