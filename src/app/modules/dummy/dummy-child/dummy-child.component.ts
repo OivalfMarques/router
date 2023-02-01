@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-dummy-child',
@@ -13,10 +13,16 @@ export class DummyChildComponent implements OnInit {
   queryParams$ = this.activatedRoute.queryParams;
 
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
+
+    this.router.navigate(["../",1001], {
+      relativeTo: this.activatedRoute,
+      replaceUrl: true,
+    })
   }
 
 }

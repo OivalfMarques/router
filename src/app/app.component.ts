@@ -21,7 +21,7 @@ export class AppComponent {
   navigate(event : MouseEvent) {
     event.stopImmediatePropagation();
     event.preventDefault();
-    this.router.navigate(['dummy3']).then((navigate) => {
+    this.router.navigate(['dummy3'], {}).then((navigate) => {
       console.log("AppComponent#navidate" , navigate)
     })
   }

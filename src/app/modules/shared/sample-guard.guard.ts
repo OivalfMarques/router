@@ -16,10 +16,13 @@ export class SampleGuardGuard implements CanActivate, CanActivateChild, CanLoad,
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    console.log("SampleGuardGuard#canActivateChild")
     return true;
   }
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    console.log("SampleGuardGuard#canActivateChild")
+
     return true;
   }
 

@@ -7,6 +7,8 @@ import {Dummy3Component} from "./modules/dummy3/dummy3.component";
 import {Dummy2Module} from "./modules/dummy2/dummy2.module";
 import {Dummy3Module} from "./modules/dummy3/dummy3.module";
 import {DummyChildComponent} from "./modules/dummy/dummy-child/dummy-child.component";
+import {SampleResolver} from "./modules/shared/sample.resolver";
+import {SampleGuardGuard} from "./modules/shared/sample-guard.guard";
 
 const routes: Routes = [
   {
@@ -15,6 +17,15 @@ const routes: Routes = [
     data: {
       someData:  "someData"
     },
+    resolve: {
+      resolve: SampleResolver
+    },
+    canActivate: [
+      SampleGuardGuard,
+    ],
+    canActivateChild : [
+      SampleGuardGuard
+    ],
     children: [
       {
         path: "",
@@ -37,11 +48,19 @@ const routes: Routes = [
     path: "dummy3",
     component: Dummy3Component
   },
+  {
+    path: "",
+    redirectTo: "dummy/100",
+    pathMatch: "full"
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes ,{
+      enableTracing : false,
+    }),
+    // RouterModule.forChild(routes),
     DummyModule,
     Dummy2Module,
     Dummy3Module,
