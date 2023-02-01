@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {LocationStrategy} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'router';
+
+
+  constructor(
+    private router: Router,
+    private locationStrategy: LocationStrategy
+  ) {
+  }
 }
